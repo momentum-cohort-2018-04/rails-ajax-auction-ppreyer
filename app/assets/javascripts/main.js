@@ -5,9 +5,9 @@ $(document).ready(function() {
       type: "GET",
       dataType: "script"
     });
-  }, 2000); // In every 30 seconds
+  }, 2000);
 });
 
-$( document ).click(function() {
+$(document).click(function() {
   setTimeout("$('.alert').fadeOut('slow')", 4000)
 });

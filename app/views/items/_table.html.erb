@@ -1,28 +1,27 @@
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Description</th>
-      <th>Starting Bid</th>
-      <th>Highest Bid</th>
-    </tr>
-  </thead>
+<div class="row">
+  <% @items.each do |item| %>
+    <div class="col-md-3">
+      <div class="card">
+        <%= image_tag item.image_url, class: "card-img-top" %>
+        <%= content_tag(:h4, item.title, class: "card-title") %>
+        <%= item.artist %>
+        <%= item.description %>
+        <%= number_to_currency(item.starting_bid) %>
+        <%= number_to_currency(item.highest_bid_amount) %>
+        <%= link_to 'Bid!', item, remote: true, class: "btn btn-primary btn-sm" %>
+        <%= link_to 'Edit', edit_item_path(item), class: "btn btn-secondary btn-sm" %>
+        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= image_tag item.image_url, class: "thumbnail img-thumbnail" %></td>
-        <td><%= item.title %></td>
-        <td><%= item.artist %></td>
-        <td><%= item.description %></td>
-        <td><%= number_to_currency(item.starting_bid) %></td>
-        <td><%= number_to_currency(item.highest_bid_amount) %></td>
-        <td><%= link_to 'Bid!', item, remote: true, class: "btn btn-primary btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-secondary btn-sm" %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
