@@ -4,34 +4,9 @@
 <h1>Listing Items</h1>
 <div id="bid--new">
 </div>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Description</th>
-      <th>Starting Bid</th>
-      <th>Highest Bid</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= image_tag item.image_url, class: "thumbnail img-thumbnail" %></td>
-        <td><%= item.title %></td>
-        <td><%= item.artist %></td>
-        <td><%= item.description %></td>
-        <td><%= number_to_currency(item.starting_bid) %></td>
-        <td><%= number_to_currency(item.highest_bid_amount) %></td>
-        <td><%= link_to 'Bid!', item, remote: true, class: "btn btn-primary btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-secondary btn-sm" %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="bid--table">
+  <%= render :partial => "table" %>
+</div>
 
 <br>
 
