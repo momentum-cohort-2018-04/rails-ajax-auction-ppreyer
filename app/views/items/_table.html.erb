@@ -1,0 +1,20 @@
+<div class="row">
+  <% @items.each do |item| %>
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag item.image_url, class: "card-img-top" %>
+        <div class="card-body">
+          <%= content_tag(:h4, item.title, class: "card-title") %>
+          <%= content_tag(:p, item.artist, class: "card-text") %>
+          <%= content_tag(:p, item.description, class: "card-text") %>
+          <%= content_tag(:p, "Starting Bid: " + number_to_currency(item.starting_bid), class: "card-text") %>
+          <%= content_tag(:p, "Highest Bid: " + number_to_currency(item.starting_bid), class: "card-text") %>
+          <%= link_to 'Bid!', item, remote: true, class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Edit', edit_item_path(item), class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

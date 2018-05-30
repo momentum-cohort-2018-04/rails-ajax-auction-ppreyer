@@ -10,6 +10,10 @@
   </head>
 
   <body>
+  <div class="log-in" style="text-align: right">
+    <%= link_to 'Log In', items_path, :class => "btn btn-outline-success" %>
+    <%= link_to 'Registration Page', items_path, :class => "btn btn-outline-primary" %>
+  </div>
     <%= yield %>
   </body>
 </html>
